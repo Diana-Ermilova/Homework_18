@@ -1,7 +1,7 @@
 import allure
 from allure_commons._allure import step
 from selene import browser, have, be
-import demoshop_page
+import api_methods
 
 
 BASE_URL = "https://demowebshop.tricentis.com/"
@@ -11,7 +11,7 @@ BASE_URL = "https://demowebshop.tricentis.com/"
 @allure.story("Добавление товаров в корзину")
 @allure.title("Добавление одного товара в корзину")
 def test_add_to_cart_one_product():
-    response = demoshop_page.add_product_in_cart(13)
+    response = api_methods.add_product_in_cart(13)
 
     with step("Открытие браузера"):
         browser.open(BASE_URL)
@@ -42,7 +42,7 @@ def test_add_to_cart_one_product():
 @allure.story("Добавление товаров в корзину")
 @allure.title("Покупка нескольких позиций одного товара")
 def test_add_to_cart_few_products():
-    response = demoshop_page.add_product_in_cart(31, 3)
+    response = api_methods.add_product_in_cart(31, 3)
 
     with step("Открытие браузера"):
         browser.open(BASE_URL)

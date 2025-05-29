@@ -16,7 +16,7 @@ def log(response, request_body=None, allure_logging=False):
     logger.info(f"STATUS CODE: {response.status_code}")
     logger.info(f"RESPONSE TIME: {response.elapsed.total_seconds() * 1000:.0f} ms\n")
     logger.info(f"RESPONSE HEADERS: {response.headers}")
-    logger.info(f"RESPONSE BODY: {response.text}\n.\n.")
+    logger.info(f"RESPONSE BODY: {response.json}\n.\n.")
     if allure_logging:
         allure.attach(
             body=f"URL: {response.request.url}\nMethod: {response.request.method}\nCode: {response.status_code}\n"
